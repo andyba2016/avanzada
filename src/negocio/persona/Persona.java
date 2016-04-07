@@ -3,6 +3,7 @@ package negocio.persona;
 import java.sql.Date;
 
 public class Persona {
+	
 	private String nombre;
 	private String apellido;
 	private Date fechaNacimiento;
@@ -41,6 +42,8 @@ public class Persona {
 	public void setDocumento(String documento) {
 		this.documento = documento;
 	}
+	
+	
 	@Override
 	public String toString() {
 		return "PersonaDTO [nombre=" + nombre + ", apellido=" + apellido + ", fechaNacimiento=" + fechaNacimiento

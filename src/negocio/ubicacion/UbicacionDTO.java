@@ -1,4 +1,4 @@
-package negocio.spec;
+package negocio.ubicacion;
 
 public class UbicacionDTO {
 	private int tipoUbicacion; // habitacion, consultorio, quirofano, guardia

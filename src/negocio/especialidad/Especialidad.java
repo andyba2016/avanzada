@@ -1,5 +1,5 @@
 package negocio.especialidad;
 
 public enum Especialidad {
-PEDIATRIA, DERMATOLOGIA
+PEDIATRIA, DERMATOLOGIA, CLINICA, ODONTOLOGIA, ENFERMERIA, OFTALMOLOGIA
 }

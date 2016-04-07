@@ -1,4 +1,4 @@
-package negocio.spec;
+package negocio.medico.spec;
 
 import negocio.especialidad.Especialidad;
 import negocio.persona.Persona;

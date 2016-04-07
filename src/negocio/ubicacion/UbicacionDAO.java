@@ -1,4 +1,4 @@
-package negocio.spec;
+package negocio.ubicacion;
 
 public interface UbicacionDAO {
 
