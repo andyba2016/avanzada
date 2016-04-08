@@ -1,11 +1,11 @@
 package visual;
 
 import negocio.factory.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import negocio.medico.spec.MedicoDAO;
@@ -14,17 +14,28 @@ import negocio.medico.spec.MedicoDTO;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import java.awt.Dimension;
+
 
 public class VentanaPrincipal extends JFrame implements ActionListener{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1515047672463024363L;
-	private JPanel contentPane;
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	
+	PanelGuardarMedico panelGuardarMedico;
 	private JMenuItem mntmNuevoEmpleado;
 	private MedicoDAO medDAO = FactoryDAO.getMedicoFactory(FactoryDAO.FILE);
 	private MedicoDTO medico;
+	
+	private JMenuItem mntmNuevoMedico;
 	
 
 	/**
@@ -36,7 +47,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 	 */
 	public VentanaPrincipal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 345);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -74,8 +85,9 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		JMenu mnNewMenu_2 = new JMenu("Medicos");
 		menuBar.add(mnNewMenu_2);
 		
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Agregar Medico");
-		mnNewMenu_2.add(mntmNewMenuItem_3);
+		mntmNuevoMedico = new JMenuItem("Agregar Medico");
+		mntmNuevoMedico.addActionListener(this);
+		mnNewMenu_2.add(mntmNuevoMedico);
 		
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Modificar Medico");
 		mnNewMenu_2.add(mntmNewMenuItem_4);
@@ -115,17 +127,29 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		
 		JMenuItem mntmNewMenuItem_14 = new JMenuItem("Ver listado");
 		mnNewMenu_4.add(mntmNewMenuItem_14);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		
+		panelGuardarMedico = new PanelGuardarMedico();
+		panelGuardarMedico.setMaximumSize(new Dimension(32767, 40000));
+		panelGuardarMedico.setVisible(false);
+		getContentPane().add(panelGuardarMedico, BorderLayout.CENTER);
+		
+		
+		
+		
 	}
 	
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getSource()==mntmNuevoEmpleado){
+			
 			medico = medDAO.setNombre("juan");
 			System.out.println("se agrego el medico "+ medico.getNombre());
+		}
+		else if(e.getSource()==mntmNuevoMedico){
+			
+			panelGuardarMedico.setVisible(true);
+			System.out.println("Se abrio el panel de nuevo medico.");
+			
 		}
 		
 	}
