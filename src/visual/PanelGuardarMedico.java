@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.Dimension;
 
 public class PanelGuardarMedico extends JPanel {
 
@@ -23,6 +24,8 @@ public class PanelGuardarMedico extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelGuardarMedico() {
+		
+		setPreferredSize(new Dimension(500, 350));
 		setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
@@ -79,14 +82,17 @@ public class PanelGuardarMedico extends JPanel {
 		add(txtCuitCuil);
 		txtCuitCuil.setColumns(10);
 		
-		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(324, 57, 93, 29);
-		add(btnGuardar);
+		JButton btnGuardarMedico = new JButton("Guardar");
+		btnGuardarMedico.setBounds(105, 294, 93, 29);
+		add(btnGuardarMedico);
 		
 		JLabel lblDatosDelMedico = new JLabel("Datos del Medico");
 		lblDatosDelMedico.setBounds(6, 6, 109, 16);
 		add(lblDatosDelMedico);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(257, 294, 117, 29);
+		add(btnCancelar);
 
 	}
-
 }

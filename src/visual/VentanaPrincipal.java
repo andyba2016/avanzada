@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 
 
 public class VentanaPrincipal extends JFrame implements ActionListener{
@@ -31,11 +32,15 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 	 */
 	
 	PanelGuardarMedico panelGuardarMedico;
+	PanelModificarMedico panelModificarMedico;
 	private JMenuItem mntmNuevoEmpleado;
 	private MedicoDAO medDAO = FactoryDAO.getMedicoFactory(FactoryDAO.FILE);
 	private MedicoDTO medico;
 	
 	private JMenuItem mntmNuevoMedico;
+	private JMenuItem mntmModificarMedico;
+	private JMenuItem mntmBorrarMedico;
+	private JMenuItem mntmVerMedicos;
 	
 
 	/**
@@ -46,8 +51,10 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 	 * Create the frame.
 	 */
 	public VentanaPrincipal() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 345);
+		
+		setPreferredSize(new Dimension(500, 400));
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -73,9 +80,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		mnNewMenu_1.add(mntmNuevoEmpleado);
 		
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("Modificar Empleado");
-		mnNewMenu_1.add(mntmNewMenuItem);
-		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Borrar Empleado");
 		mnNewMenu_1.add(mntmNewMenuItem_1);
 		
@@ -89,8 +93,11 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		mntmNuevoMedico.addActionListener(this);
 		mnNewMenu_2.add(mntmNuevoMedico);
 		
-		JMenuItem mntmNewMenuItem_4 = new JMenuItem("Modificar Medico");
-		mnNewMenu_2.add(mntmNewMenuItem_4);
+		
+		mntmModificarMedico = new JMenuItem("Modificar Empleado");
+		mntmModificarMedico.addActionListener(this);
+		mnNewMenu_2.add(mntmModificarMedico);
+		
 		
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("Borrar Medico");
 		mnNewMenu_2.add(mntmNewMenuItem_5);
@@ -129,16 +136,18 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		mnNewMenu_4.add(mntmNewMenuItem_14);
 		
 		panelGuardarMedico = new PanelGuardarMedico();
-		panelGuardarMedico.setMaximumSize(new Dimension(32767, 40000));
+		panelModificarMedico = new PanelModificarMedico();
+		
 		panelGuardarMedico.setVisible(false);
-		getContentPane().add(panelGuardarMedico, BorderLayout.CENTER);
-		
-		
+		panelModificarMedico.setVisible(false);
 		
 		
 	}
 	
 	public void actionPerformed(ActionEvent e) {
+		
+		panelModificarMedico.setVisible(false);
+		panelGuardarMedico.setVisible(false);
 		
 		if(e.getSource()==mntmNuevoEmpleado){
 			
@@ -147,9 +156,18 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		}
 		else if(e.getSource()==mntmNuevoMedico){
 			
+			panelGuardarMedico.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelGuardarMedico);
 			panelGuardarMedico.setVisible(true);
 			System.out.println("Se abrio el panel de nuevo medico.");
 			
+		}
+		else if(e.getSource()==mntmModificarMedico){
+			
+			panelModificarMedico.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelModificarMedico);
+			panelModificarMedico.setVisible(true);
+			System.out.println("se abrio el panel de modificar medico");
 		}
 		
 	}

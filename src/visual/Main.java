@@ -1,5 +1,6 @@
 package visual;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -37,6 +38,9 @@ public class Main {
 	private void initialize() {
 		frame = new VentanaPrincipal();
 		frame.setBounds(100, 100, 450, 300);
+		//frame.getContentPane().setPreferredSize(new Dimension(500, 400));
+		frame.pack();
+		//frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
