@@ -16,6 +16,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Component;
+
 import javax.swing.JButton;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -33,6 +35,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 	
 	PanelGuardarMedico panelGuardarMedico;
 	PanelModificarMedico panelModificarMedico;
+	PanelGuardarEmpleado panelGuardarEmpleado;
+	
 	private JMenuItem mntmNuevoEmpleado;
 	private MedicoDAO medDAO = FactoryDAO.getMedicoFactory(FactoryDAO.FILE);
 	private MedicoDTO medico;
@@ -151,8 +155,10 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		
 		if(e.getSource()==mntmNuevoEmpleado){
 			
-			medico = medDAO.setNombre("juan");
-			System.out.println("se agrego el medico "+ medico.getNombre());
+			panelGuardarEmpleado.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelGuardarEmpleado);
+			panelGuardarEmpleado.setVisible(true);
+			System.out.println("Se abrio el panel de nuevo medico.");
 		}
 		else if(e.getSource()==mntmNuevoMedico){
 			
