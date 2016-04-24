@@ -4,6 +4,7 @@ import negocio.factory.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Console;
 
 import javax.swing.JFrame;
 import javax.swing.border.EmptyBorder;
@@ -37,7 +38,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 	PanelModificarMedico panelModificarMedico;
 	PanelGuardarEmpleado panelGuardarEmpleado;
 	
-	private JMenuItem mntmNuevoEmpleado;
+	
 	private MedicoDAO medDAO = FactoryDAO.getMedicoFactory(FactoryDAO.FILE);
 	private MedicoDTO medico;
 	
@@ -45,6 +46,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 	private JMenuItem mntmModificarMedico;
 	private JMenuItem mntmBorrarMedico;
 	private JMenuItem mntmVerMedicos;
+	private JMenuItem mntmNuevoEmpleado;
 	
 
 	/**
@@ -142,23 +144,32 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		panelGuardarMedico = new PanelGuardarMedico();
 		panelModificarMedico = new PanelModificarMedico();
 		
+		panelGuardarEmpleado = new PanelGuardarEmpleado();
+		
 		panelGuardarMedico.setVisible(false);
 		panelModificarMedico.setVisible(false);
+		panelGuardarEmpleado.setVisible(false);
 		
 		
 	}
 	
 	public void actionPerformed(ActionEvent e) {
 		
+		
 		panelModificarMedico.setVisible(false);
 		panelGuardarMedico.setVisible(false);
+		panelGuardarEmpleado.setVisible(false);
 		
 		if(e.getSource()==mntmNuevoEmpleado){
 			
+			try{
 			panelGuardarEmpleado.setPreferredSize(new Dimension(400, 800));
 			getContentPane().add(panelGuardarEmpleado);
 			panelGuardarEmpleado.setVisible(true);
-			System.out.println("Se abrio el panel de nuevo medico.");
+			System.out.println("Se abrio el panel de nuevo empleado.");
+			}catch(Exception exce){
+				System.out.println("Error"+exce.getCause());
+			}
 		}
 		else if(e.getSource()==mntmNuevoMedico){
 			
