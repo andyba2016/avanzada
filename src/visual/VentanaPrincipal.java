@@ -100,7 +100,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		mnNewMenu_2.add(mntmNuevoMedico);
 		
 		
-		mntmModificarMedico = new JMenuItem("Modificar Empleado");
+		mntmModificarMedico = new JMenuItem("Modificar Medico");
 		mntmModificarMedico.addActionListener(this);
 		mnNewMenu_2.add(mntmModificarMedico);
 		
