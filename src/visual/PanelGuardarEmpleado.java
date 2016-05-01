@@ -24,8 +24,8 @@ public class PanelGuardarEmpleado extends JPanel {
 	 */
 	public PanelGuardarEmpleado() {
 		
-		//setPreferredSize(new Dimension(500, 350));
-		//setLayout(null);
+		setPreferredSize(new Dimension(500, 350));
+		setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(6, 62, 50, 16);

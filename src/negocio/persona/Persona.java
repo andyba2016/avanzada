@@ -9,6 +9,7 @@ public class Persona {
 	private Date fechaNacimiento;
 	private String direccion;
 	private String documento;
+	private String Cuit;
 	
 	public String getNombre() {
 		return nombre;
@@ -43,11 +44,16 @@ public class Persona {
 		this.documento = documento;
 	}
 	
-	
 	@Override
 	public String toString() {
-		return "PersonaDTO [nombre=" + nombre + ", apellido=" + apellido + ", fechaNacimiento=" + fechaNacimiento
-				+ ", direccion=" + direccion + ", documento=" + documento + "]";
+		return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", fechaNacimiento=" + fechaNacimiento
+				+ ", direccion=" + direccion + ", documento=" + documento + ", Cuit=" + Cuit + "]";
+	}
+	public String getCuit() {
+		return Cuit;
+	}
+	public void setCuit(String cuit) {
+		Cuit = cuit;
 	}
 	
 }
