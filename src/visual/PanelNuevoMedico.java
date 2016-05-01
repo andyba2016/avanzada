@@ -7,11 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.Dimension;
 
-public class PanelGuardarMedico extends JPanel {
+public class PanelNuevoMedico extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNombre;
 	private JTextField txtApellido;
@@ -20,10 +17,8 @@ public class PanelGuardarMedico extends JPanel {
 	private JTextField txtEspecialidad;
 	private JTextField txtCuitCuil;
 
-	/**
-	 * Create the panel.
-	 */
-	public PanelGuardarMedico() {
+	
+	public PanelNuevoMedico() {
 		
 		setPreferredSize(new Dimension(500, 350));
 		setLayout(null);

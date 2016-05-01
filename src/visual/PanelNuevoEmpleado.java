@@ -7,11 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.Dimension;
 
-public class PanelGuardarEmpleado extends JPanel {
+public class PanelNuevoEmpleado extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNombre;
 	private JTextField txtApellido;
@@ -19,13 +16,11 @@ public class PanelGuardarEmpleado extends JPanel {
 	private JTextField txtDocumento;
 	private JTextField txtCuitCuil;
 
-	/**
-	 * Create the panel.
-	 */
-	public PanelGuardarEmpleado() {
+	
+	public PanelNuevoEmpleado() {
 		
-		//setPreferredSize(new Dimension(500, 350));
-		//setLayout(null);
+		setPreferredSize(new Dimension(500, 350));
+		setLayout(null);
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(6, 62, 50, 16);
@@ -36,7 +31,7 @@ public class PanelGuardarEmpleado extends JPanel {
 		add(lblApellido);
 		
 		JLabel lblFechaNacimiento = new JLabel("Fecha Nacimiento");
-		lblFechaNacimiento.setBounds(6, 123, 112, 16);
+		lblFechaNacimiento.setBounds(6, 123, 117, 16);
 		add(lblFechaNacimiento);
 		
 		JLabel lblDocumento = new JLabel("Documento");
@@ -48,27 +43,27 @@ public class PanelGuardarEmpleado extends JPanel {
 		add(lblCuitcuil);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(91, 57, 130, 26);
+		txtNombre.setBounds(154, 57, 130, 26);
 		add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtApellido = new JTextField();
-		txtApellido.setBounds(91, 85, 130, 26);
+		txtApellido.setBounds(154, 85, 130, 26);
 		add(txtApellido);
 		txtApellido.setColumns(10);
 		
 		txtFechaNacimiento = new JTextField();
-		txtFechaNacimiento.setBounds(91, 118, 130, 26);
+		txtFechaNacimiento.setBounds(154, 118, 130, 26);
 		add(txtFechaNacimiento);
 		txtFechaNacimiento.setColumns(10);
 		
 		txtDocumento = new JTextField();
-		txtDocumento.setBounds(91, 146, 130, 26);
+		txtDocumento.setBounds(154, 146, 130, 26);
 		add(txtDocumento);
 		txtDocumento.setColumns(10);
 		
 		txtCuitCuil = new JTextField();
-		txtCuitCuil.setBounds(91, 177, 130, 26);
+		txtCuitCuil.setBounds(154, 177, 130, 26);
 		add(txtCuitCuil);
 		txtCuitCuil.setColumns(10);
 		
