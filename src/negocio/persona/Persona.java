@@ -9,7 +9,7 @@ public class Persona {
 	private Date fechaNacimiento;
 	private String direccion;
 	private String documento;
-	private String Cuit;
+	private String cuit;
 	
 	public String getNombre() {
 		return nombre;
@@ -47,13 +47,13 @@ public class Persona {
 	@Override
 	public String toString() {
 		return "Persona [nombre=" + nombre + ", apellido=" + apellido + ", fechaNacimiento=" + fechaNacimiento
-				+ ", direccion=" + direccion + ", documento=" + documento + ", Cuit=" + Cuit + "]";
+				+ ", direccion=" + direccion + ", documento=" + documento + ", Cuit=" + cuit + "]";
 	}
 	public String getCuit() {
-		return Cuit;
+		return cuit;
 	}
 	public void setCuit(String cuit) {
-		Cuit = cuit;
+		cuit = cuit;
 	}
 	
 }
