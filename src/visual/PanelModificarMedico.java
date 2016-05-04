@@ -3,6 +3,7 @@ package visual;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.JList;
 import java.awt.Dimension;
 
@@ -23,9 +24,8 @@ public class PanelModificarMedico extends JPanel {
 	 */
 	public PanelModificarMedico() {
 		
-		setPreferredSize(new Dimension(400, 600));
 		setLayout(null);
-		
+		setBackground(UIManager.getColor("textHighlight"));
 		
 		JLabel lblModificarMedico = new JLabel("Modificar Medico");
 		lblModificarMedico.setBounds(6, 6, 125, 16);

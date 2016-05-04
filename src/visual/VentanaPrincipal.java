@@ -19,6 +19,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 import java.awt.Dimension;
+import javax.swing.UIManager;
+import java.awt.SystemColor;
+import java.awt.Color;
 
 public class VentanaPrincipal extends JFrame implements ActionListener{
 
@@ -39,21 +42,15 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 	private JMenuItem mntmNuevoEmpleado;
 	
 
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
 	public VentanaPrincipal() {
+		getContentPane().setBackground(UIManager.getColor("textHighlight"));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		setPreferredSize(new Dimension(500, 400));
+		setPreferredSize(new Dimension(800, 750));
 		
 		// BARRA CON OPCIONES ARCHIVO, EMPLEADOS, MEDICOS, PACIENTES, TURNOS
 		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(SystemColor.menu);
 		setJMenuBar(menuBar);
 		JMenu mnNewMenu = new JMenu("Archivo");
 		menuBar.add(mnNewMenu);
@@ -78,7 +75,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		//BOTONES MEDICOS
 		JMenu mnMedicos = new JMenu("Medicos");
 		menuBar.add(mnMedicos);
-		mntmNuevoMedico = new JMenuItem("Agregar Medico");
+		mntmNuevoMedico = new JMenuItem("Nuevo Medico");
 		mntmNuevoMedico.addActionListener(this);
 		mnMedicos.add(mntmNuevoMedico);
 		mntmModificarMedico = new JMenuItem("Modificar Medico");

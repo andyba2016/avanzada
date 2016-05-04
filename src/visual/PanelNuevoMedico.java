@@ -5,6 +5,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+
 import java.awt.Dimension;
 
 public class PanelNuevoMedico extends JPanel {
@@ -20,8 +22,9 @@ public class PanelNuevoMedico extends JPanel {
 	
 	public PanelNuevoMedico() {
 		
-		setPreferredSize(new Dimension(500, 350));
+		
 		setLayout(null);
+		setBackground(UIManager.getColor("textHighlight"));
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(6, 62, 50, 16);
