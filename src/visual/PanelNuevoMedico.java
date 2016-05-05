@@ -229,10 +229,10 @@ public class PanelNuevoMedico extends JPanel {
 		layeredPane_1.setBounds(0, 436, 800, 121);
 		add(layeredPane_1);
 		
-		JLabel lblDatosMedico = new JLabel("Datos del Medico");
-		lblDatosMedico.setFont(new Font("Arial", Font.BOLD, 22));
-		lblDatosMedico.setBounds(17, 6, 234, 34);
-		add(lblDatosMedico);
+		JLabel lblNuevoMedico = new JLabel("Datos del Medico");
+		lblNuevoMedico.setFont(new Font("Arial", Font.BOLD, 22));
+		lblNuevoMedico.setBounds(17, 6, 234, 34);
+		add(lblNuevoMedico);
 
 		JButton btnGuardarMedico = new JButton("Guardar");
 		btnGuardarMedico.addActionListener(new ActionListener() {

@@ -17,34 +17,61 @@ import negocio.medico.spec.MedicoDTO;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JTable;
 
 import java.awt.Dimension;
 import javax.swing.UIManager;
 import java.awt.SystemColor;
-import java.awt.Color;
 
 public class VentanaPrincipal extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	
-	private PanelNuevoMedico panelNuevoMedico;
-	private PanelModificarMedico panelModificarMedico;
-	private PanelNuevoEmpleado panelNuevoEmpleado;
-	private PanelNuevoPaciente panelNuevoPaciente;
-	private PanelNuevoTurno panelNuevoTurno;
-	
-	
 	private MedicoDAO medDAO = FactoryDAO.getMedicoFactory(FactoryDAO.FILE);
 	private MedicoDTO medico;
 	
-	private JMenuItem mntmNuevoMedico;
+	// declaracion de paneles
+	private PanelNuevoEmpleado panelNuevoEmpleado;
+	private PanelNuevoMedico panelNuevoMedico;
+	private PanelNuevoPaciente panelNuevoPaciente;
+	private PanelNuevoTurno panelNuevoTurno;
+	
+	private PanelModificarEmpleado panelModificarEmpleado;
+	private PanelModificarMedico panelModificarMedico;
+	private PanelModificarPaciente panelModificarPaciente;
+	private PanelModificarTurno panelModificarTurno;
+	
+	private PanelBorrarEmpleado panelBorrarEmpleado;
+	private PanelBorrarMedico panelBorrarMedico;
+	private PanelBorrarPaciente panelBorrarPaciente;
+	private PanelBorrarTurno panelBorrarTurno;
+	
+	private PanelVerEmpleado panelVerEmpleado;
+	private PanelVerMedico panelVerMedico;
+	private PanelVerPaciente panelVerPaciente;
+	private PanelVerTurno panelVerTurno;
+	
+	
+	// declaracion de botones del menu
 	private JMenuItem mntmNuevoEmpleado;
+	private JMenuItem mntmNuevoMedico;
 	private JMenuItem mntmNuevoPaciente;
 	private JMenuItem mntmNuevoTurno;
-	private JMenuItem mntmModificarMedico;
-	private JMenuItem mntmBorrarMedico;
-	private JMenuItem mntmVerMedicos;
 	
+	private JMenuItem mntmModificarEmpleado;
+	private JMenuItem mntmModificarMedico;
+	private JMenuItem mntmModificarPaciente;
+	private JMenuItem mntmModificarTurno;
+	
+	private JMenuItem mntmBorrarEmpleado;
+	private JMenuItem mntmBorrarMedico;
+	private JMenuItem mntmBorrarPaciente;
+	private JMenuItem mntmEliminarTurno;
+	
+	private JMenuItem mntmVerEmpleados;
+	private JMenuItem mntmVerMedicos;
+	private JMenuItem mntmVerPacientes;
+	private JMenuItem mntmVerTurnos;
 	
 
 	public VentanaPrincipal() {
@@ -70,9 +97,11 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		mntmNuevoEmpleado = new JMenuItem("Nuevo Empleado");  
 		mntmNuevoEmpleado.addActionListener(this);
 		mnEmpleados.add(mntmNuevoEmpleado);
-		JMenuItem mntmModificarEmpleado = new JMenuItem("Modificar Empleado");
+		mntmModificarEmpleado = new JMenuItem("Modificar Empleado");
+		mntmModificarEmpleado.addActionListener(this);
 		mnEmpleados.add(mntmModificarEmpleado);
-		JMenuItem mntmBorrarEmpleado = new JMenuItem("Borrar Empleado");
+		mntmBorrarEmpleado = new JMenuItem("Borrar Empleado");
+		mntmBorrarEmpleado.addActionListener(this);
 		mnEmpleados.add(mntmBorrarEmpleado);
 		JMenuItem mntmVerEmpleados = new JMenuItem("Ver listado");
 		mnEmpleados.add(mntmVerEmpleados);
@@ -86,7 +115,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		mntmModificarMedico = new JMenuItem("Modificar Medico");
 		mntmModificarMedico.addActionListener(this);
 		mnMedicos.add(mntmModificarMedico);
-		JMenuItem mntmBorrarMedico = new JMenuItem("Borrar Medico");
+		mntmBorrarMedico = new JMenuItem("Borrar Medico");
+		mntmBorrarMedico.addActionListener(this);
 		mnMedicos.add(mntmBorrarMedico);
 		JMenuItem mntmVerMedicos = new JMenuItem("Ver listado");
 		mnMedicos.add(mntmVerMedicos);
@@ -97,9 +127,11 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		mntmNuevoPaciente = new JMenuItem("Nuevo Paciente");
 		mntmNuevoPaciente.addActionListener(this);
 		mnPacientes.add(mntmNuevoPaciente);
-		JMenuItem mntmModificarPaciente = new JMenuItem("Modificar Paciente");
+		mntmModificarPaciente = new JMenuItem("Modificar Paciente");
+		mntmModificarPaciente.addActionListener(this);
 		mnPacientes.add(mntmModificarPaciente);
-		JMenuItem mntmBorrarPaciente = new JMenuItem("Borrar Paciente");
+		mntmBorrarPaciente = new JMenuItem("Borrar Paciente");
+		mntmBorrarPaciente.addActionListener(this);
 		mnPacientes.add(mntmBorrarPaciente);
 		JMenuItem mntmVerPacientes = new JMenuItem("Ver listado");
 		mnPacientes.add(mntmVerPacientes);
@@ -110,27 +142,40 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		mntmNuevoTurno = new JMenuItem("Nuevo turno");
 		mntmNuevoTurno.addActionListener(this);
 		mnTurnos.add(mntmNuevoTurno);
-		JMenuItem mntmModificarTurno = new JMenuItem("Modificar turno");
+		mntmModificarTurno = new JMenuItem("Modificar turno");
+		mntmModificarTurno.addActionListener(this);
 		mnTurnos.add(mntmModificarTurno);
-		JMenuItem mntmEliminarTurno = new JMenuItem("Eliminar turno");
+		mntmEliminarTurno = new JMenuItem("Eliminar turno");
+		mntmEliminarTurno.addActionListener(this);
 		mnTurnos.add(mntmEliminarTurno);
 		JMenuItem mntmVerTurnos = new JMenuItem("Ver turnos");
 		mnTurnos.add(mntmVerTurnos);
 		
 		// PANELES EMPLEADOS
 		panelNuevoEmpleado = new PanelNuevoEmpleado();
-		
+		panelModificarEmpleado = new PanelModificarEmpleado();
+		panelBorrarEmpleado = new PanelBorrarEmpleado();
+		panelVerEmpleado = new PanelVerEmpleado();
 		
 		// PANELES MEDICOS
 		panelNuevoMedico = new PanelNuevoMedico();
 		panelModificarMedico = new PanelModificarMedico();
-		
+		panelBorrarMedico = new PanelBorrarMedico();
+		panelVerMedico = new PanelVerMedico();
 		
 		// PANELES PACIENTES
 		panelNuevoPaciente = new PanelNuevoPaciente();
+		panelModificarPaciente = new PanelModificarPaciente();
+		panelBorrarPaciente = new PanelBorrarPaciente();
+		panelVerPaciente = new PanelVerPaciente();
 		
 		// PANELES TURNOS
 		panelNuevoTurno = new PanelNuevoTurno();
+		panelModificarTurno = new PanelModificarTurno();
+		panelBorrarTurno = new PanelBorrarTurno();
+		panelVerTurno = new PanelVerTurno();
+		
+		
 		
 	}
 	
@@ -138,10 +183,17 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		
 		panelNuevoEmpleado.setVisible(false);
 		panelNuevoMedico.setVisible(false);
-		panelModificarMedico.setVisible(false);
 		panelNuevoPaciente.setVisible(false);
 		panelNuevoTurno.setVisible(false);
-		
+		panelModificarEmpleado.setVisible(false);
+		panelModificarMedico.setVisible(false);
+		panelModificarPaciente.setVisible(false);
+		panelModificarTurno.setVisible(false);
+		panelBorrarEmpleado.setVisible(false);
+		panelBorrarMedico.setVisible(false);
+		panelBorrarPaciente.setVisible(false);
+		panelBorrarTurno.setVisible(false);
+	
 		
 		if(e.getSource()==mntmNuevoEmpleado){
 			
@@ -149,7 +201,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 			panelNuevoEmpleado.setPreferredSize(new Dimension(400, 800));
 			getContentPane().add(panelNuevoEmpleado);
 			panelNuevoEmpleado.setVisible(true);
-			System.out.println("Se abrio el panel de nuevo empleado.");
+			System.out.println("se abrio el panel de nuevo empleado.");
 			}catch(Exception exce){
 				System.out.println("Error"+exce.getCause());
 			}
@@ -159,15 +211,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 			panelNuevoMedico.setPreferredSize(new Dimension(400, 800));
 			getContentPane().add(panelNuevoMedico);
 			panelNuevoMedico.setVisible(true);
-			System.out.println("Se abrio el panel de nuevo medico.");
+			System.out.println("se abrio el panel de nuevo medico.");
 			
-		}
-		else if(e.getSource()==mntmModificarMedico){
-			
-			panelModificarMedico.setPreferredSize(new Dimension(400, 800));
-			getContentPane().add(panelModificarMedico);
-			panelModificarMedico.setVisible(true);
-			System.out.println("se abrio el panel de modificar medico");
 		}
 		else if(e.getSource()==mntmNuevoPaciente){
 			
@@ -183,6 +228,62 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 			panelNuevoTurno.setVisible(true);
 			System.out.println("se abrio el panel de nuevo turno");
 		}
-		
+		else if(e.getSource()==mntmModificarEmpleado){
+			
+			panelModificarEmpleado.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelModificarEmpleado);
+			panelModificarEmpleado.setVisible(true);
+			System.out.println("se abrio el panel de modificar empleado");
+		}
+		else if(e.getSource()==mntmModificarMedico){
+			
+			panelModificarMedico.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelModificarMedico);
+			panelModificarMedico.setVisible(true);
+			System.out.println("se abrio el panel de modificar medico");
+		}
+		else if(e.getSource()==mntmModificarPaciente){
+			
+			panelModificarPaciente.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelModificarPaciente);
+			panelModificarPaciente.setVisible(true);
+			System.out.println("se abrio el panel de modificar paciente");
+		}
+		else if(e.getSource()==mntmModificarTurno){
+	
+			panelModificarTurno.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelModificarTurno);
+			panelModificarTurno.setVisible(true);
+			System.out.println("se abrio el panel de modificar turno");
+		}
+		else if (e.getSource()==mntmBorrarEmpleado) {
+			
+			panelBorrarEmpleado.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelBorrarEmpleado);
+			panelBorrarEmpleado.setVisible(true);
+			System.out.println("se abrio el panel de modificar turno");
+		}
+		else if (e.getSource()==mntmBorrarMedico) {
+			
+			panelBorrarMedico.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelBorrarMedico);
+			panelBorrarMedico.setVisible(true);
+			System.out.println("se abrio el panel de modificar turno");
+		}
+		else if (e.getSource()==mntmBorrarPaciente) {
+			
+			panelBorrarPaciente.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelBorrarPaciente);
+			panelBorrarPaciente.setVisible(true);
+			System.out.println("se abrio el panel de modificar turno");
+		}
+		else if (e.getSource()==mntmEliminarTurno) {
+			
+			panelBorrarTurno.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelBorrarTurno);
+			panelBorrarTurno.setVisible(true);
+			System.out.println("se abrio el panel de modificar turno");
+		}
+
 	}
 }

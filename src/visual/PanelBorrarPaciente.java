@@ -19,27 +19,27 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JList;
 import javax.swing.JTable;
 
-public class PanelBorrarMedico extends JPanel {
+public class PanelBorrarPaciente extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField txtBuscar;
-	private JTable tableMedico;
+	private JTable tablePacientes;
 
 	
-	public PanelBorrarMedico() {
+	public PanelBorrarPaciente() {
 		setPreferredSize(new Dimension(800, 700));
 		
 		setLayout(null);
 		setBackground(UIManager.getColor("textHighlight"));
 		
-		JButton btnBorrarMedico = new JButton("Borrar");
-		btnBorrarMedico.setBounds(204, 648, 141, 46);
-		add(btnBorrarMedico);
+		JButton btnBorrarEmpleado = new JButton("Borrar");
+		btnBorrarEmpleado.setBounds(204, 648, 141, 46);
+		add(btnBorrarEmpleado);
 		
-		JLabel lblBorrarMedico = new JLabel("Borrar Medico");
-		lblBorrarMedico.setFont(new Font("Arial", Font.BOLD, 22));
-		lblBorrarMedico.setBounds(17, 6, 234, 34);
-		add(lblBorrarMedico);
+		JLabel lblBorrarPaciente = new JLabel("Borrar Paciente");
+		lblBorrarPaciente.setFont(new Font("Arial", Font.BOLD, 22));
+		lblBorrarPaciente.setBounds(17, 6, 234, 34);
+		add(lblBorrarPaciente);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setPreferredSize(new Dimension(93, 29));
@@ -66,9 +66,9 @@ public class PanelBorrarMedico extends JPanel {
 		lblListaEmpleados.setBounds(17, 183, 117, 28);
 		add(lblListaEmpleados);
 		
-		tableMedico = new JTable();
-		tableMedico.setBounds(17, 223, 777, 140);
-		add(tableMedico);
+		tablePacientes = new JTable();
+		tablePacientes.setBounds(17, 210, 777, 161);
+		add(tablePacientes);
 
 	}
 }
