@@ -8,6 +8,7 @@ import javax.swing.JTextField;
 import java.awt.Dimension;
 import javax.swing.UIManager;
 import java.awt.Font;
+import javax.swing.JLayeredPane;
 
 public class PanelNuevoEmpleado extends JPanel {
 
@@ -27,6 +28,7 @@ public class PanelNuevoEmpleado extends JPanel {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private JTextField textField_6;
 
 	
 	public PanelNuevoEmpleado() {
@@ -37,51 +39,51 @@ public class PanelNuevoEmpleado extends JPanel {
 		
 		JLabel lblNombre = new JLabel("Nombre");
 		lblNombre.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblNombre.setBounds(17, 90, 117, 16);
+		lblNombre.setBounds(17, 52, 117, 16);
 		add(lblNombre);
 		
 		JLabel lblApellido = new JLabel("Apellido");
 		lblApellido.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblApellido.setBounds(17, 136, 73, 16);
+		lblApellido.setBounds(17, 98, 73, 24);
 		add(lblApellido);
 		
 		JLabel lblFechaNacimiento = new JLabel("Fecha Nacimiento");
 		lblFechaNacimiento.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblFechaNacimiento.setBounds(17, 182, 176, 16);
+		lblFechaNacimiento.setBounds(17, 149, 176, 16);
 		add(lblFechaNacimiento);
 		
 		JLabel lblDocumento = new JLabel("Documento");
 		lblDocumento.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblDocumento.setBounds(17, 239, 141, 16);
+		lblDocumento.setBounds(17, 195, 141, 16);
 		add(lblDocumento);
 		
 		JLabel lblCuitcuil = new JLabel("CUIT/CUIL");
 		lblCuitcuil.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblCuitcuil.setBounds(17, 283, 117, 16);
+		lblCuitcuil.setBounds(17, 245, 117, 16);
 		add(lblCuitcuil);
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(204, 83, 176, 34);
+		txtNombre.setBounds(239, 45, 176, 34);
 		add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtApellido = new JTextField();
-		txtApellido.setBounds(204, 129, 176, 34);
+		txtApellido.setBounds(239, 95, 176, 34);
 		add(txtApellido);
 		txtApellido.setColumns(10);
 		
 		txtFechaNacimiento = new JTextField();
-		txtFechaNacimiento.setBounds(204, 175, 176, 34);
+		txtFechaNacimiento.setBounds(239, 142, 176, 34);
 		add(txtFechaNacimiento);
 		txtFechaNacimiento.setColumns(10);
 		
 		txtDocumento = new JTextField();
-		txtDocumento.setBounds(204, 221, 176, 34);
+		txtDocumento.setBounds(239, 188, 176, 34);
 		add(txtDocumento);
 		txtDocumento.setColumns(10);
 		
 		txtCuitCuil = new JTextField();
-		txtCuitCuil.setBounds(204, 265, 176, 34);
+		txtCuitCuil.setBounds(239, 234, 176, 34);
 		add(txtCuitCuil);
 		txtCuitCuil.setColumns(10);
 		
@@ -91,7 +93,7 @@ public class PanelNuevoEmpleado extends JPanel {
 		
 		JLabel lblDatosDelEmpleado = new JLabel("Datos del Empleado");
 		lblDatosDelEmpleado.setFont(new Font("Arial", Font.BOLD, 22));
-		lblDatosDelEmpleado.setBounds(6, 6, 234, 34);
+		lblDatosDelEmpleado.setBounds(17, 6, 234, 34);
 		add(lblDatosDelEmpleado);
 		
 		JButton btnCancelar = new JButton("Cancelar");
@@ -100,113 +102,131 @@ public class PanelNuevoEmpleado extends JPanel {
 		
 		JLabel lblEmail = new JLabel("Email");
 		lblEmail.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblEmail.setBounds(17, 329, 117, 16);
+		lblEmail.setBounds(17, 287, 117, 16);
 		add(lblEmail);
-		
-		JLabel lblTelefono = new JLabel("Telefono:");
-		lblTelefono.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblTelefono.setBounds(17, 363, 117, 16);
-		add(lblTelefono);
-		
-		JLabel lblNroPersonal = new JLabel("Personal");
-		lblNroPersonal.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblNroPersonal.setBounds(146, 364, 117, 16);
-		add(lblNroPersonal);
-		
-		JLabel lblDireccion = new JLabel("Direccion");
-		lblDireccion.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblDireccion.setBounds(17, 483, 117, 16);
-		add(lblDireccion);
-		
-		txtPersonal = new JTextField();
-		txtPersonal.setColumns(10);
-		txtPersonal.setBounds(239, 357, 176, 34);
-		add(txtPersonal);
-		
-		JLabel lblCelular = new JLabel("Celular");
-		lblCelular.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblCelular.setBounds(146, 399, 117, 16);
-		add(lblCelular);
-		
-		txtCelular = new JTextField();
-		txtCelular.setColumns(10);
-		txtCelular.setBounds(239, 392, 176, 34);
-		add(txtCelular);
-		
-		JLabel lblLaboral = new JLabel("Laboral");
-		lblLaboral.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblLaboral.setBounds(146, 434, 117, 16);
-		add(lblLaboral);
-		
-		txtLaboral = new JTextField();
-		txtLaboral.setColumns(10);
-		txtLaboral.setBounds(239, 427, 176, 34);
-		add(txtLaboral);
 		
 		txtEmail = new JTextField();
 		txtEmail.setColumns(10);
-		txtEmail.setBounds(204, 311, 176, 34);
+		txtEmail.setBounds(239, 280, 176, 34);
 		add(txtEmail);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(239, 483, 176, 34);
-		add(textField);
+		JLabel lblObraSocial = new JLabel("Obra Social");
+		lblObraSocial.setFont(new Font("Arial", Font.PLAIN, 20));
+		lblObraSocial.setBounds(17, 585, 117, 16);
+		add(lblObraSocial);
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(239, 578, 176, 34);
+		add(textField_6);
+		
+		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane.setBounds(0, 328, 800, 123);
+		add(layeredPane);
+		
+		JLabel lblTelefono = new JLabel("Telefono:");
+		lblTelefono.setBounds(17, 13, 117, 16);
+		layeredPane.add(lblTelefono);
+		lblTelefono.setFont(new Font("Arial", Font.PLAIN, 20));
+		
+		JLabel lblNroPersonal = new JLabel("Personal");
+		lblNroPersonal.setBounds(145, 13, 117, 16);
+		layeredPane.add(lblNroPersonal);
+		lblNroPersonal.setFont(new Font("Arial", Font.PLAIN, 20));
+		
+		txtPersonal = new JTextField();
+		txtPersonal.setBounds(239, 6, 176, 34);
+		layeredPane.add(txtPersonal);
+		txtPersonal.setColumns(10);
+		
+		JLabel lblCelular = new JLabel("Celular");
+		lblCelular.setBounds(145, 48, 117, 16);
+		layeredPane.add(lblCelular);
+		lblCelular.setFont(new Font("Arial", Font.PLAIN, 20));
+		
+		txtCelular = new JTextField();
+		txtCelular.setBounds(239, 41, 176, 34);
+		layeredPane.add(txtCelular);
+		txtCelular.setColumns(10);
+		
+		JLabel lblLaboral = new JLabel("Laboral");
+		lblLaboral.setBounds(145, 83, 117, 16);
+		layeredPane.add(lblLaboral);
+		lblLaboral.setFont(new Font("Arial", Font.PLAIN, 20));
+		
+		txtLaboral = new JTextField();
+		txtLaboral.setBounds(239, 76, 176, 34);
+		layeredPane.add(txtLaboral);
+		txtLaboral.setColumns(10);
+		
+		JLayeredPane layeredPane_1 = new JLayeredPane();
+		layeredPane_1.setBounds(0, 450, 800, 123);
+		add(layeredPane_1);
+		
+		JLabel lblDireccion = new JLabel("Direccion:");
+		lblDireccion.setBounds(14, 13, 117, 16);
+		layeredPane_1.add(lblDireccion);
+		lblDireccion.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		JLabel lblCalle = new JLabel("Calle");
+		lblCalle.setBounds(143, 13, 117, 16);
+		layeredPane_1.add(lblCalle);
 		lblCalle.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblCalle.setBounds(146, 490, 117, 16);
-		add(lblCalle);
 		
 		JLabel lblAltura = new JLabel("Altura");
+		lblAltura.setBounds(143, 47, 117, 16);
+		layeredPane_1.add(lblAltura);
 		lblAltura.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblAltura.setBounds(146, 525, 117, 16);
-		add(lblAltura);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(239, 518, 176, 34);
-		add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(239, 553, 176, 34);
-		add(textField_2);
 		
 		JLabel lblCiudad = new JLabel("Ciudad");
+		lblCiudad.setBounds(143, 86, 117, 16);
+		layeredPane_1.add(lblCiudad);
 		lblCiudad.setFont(new Font("Arial", Font.PLAIN, 20));
-		lblCiudad.setBounds(146, 560, 117, 16);
-		add(lblCiudad);
+		
+		textField = new JTextField();
+		textField.setBounds(239, 6, 176, 34);
+		layeredPane_1.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(239, 40, 176, 34);
+		layeredPane_1.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(239, 79, 176, 34);
+		layeredPane_1.add(textField_2);
+		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
+		textField_3.setBounds(577, 6, 176, 34);
+		layeredPane_1.add(textField_3);
 		textField_3.setColumns(10);
-		textField_3.setBounds(555, 483, 176, 34);
-		add(textField_3);
-		
-		JLabel label = new JLabel("Personal");
-		label.setFont(new Font("Arial", Font.PLAIN, 20));
-		label.setBounds(462, 490, 117, 16);
-		add(label);
-		
-		JLabel label_1 = new JLabel("Celular");
-		label_1.setFont(new Font("Arial", Font.PLAIN, 20));
-		label_1.setBounds(462, 525, 117, 16);
-		add(label_1);
 		
 		textField_4 = new JTextField();
+		textField_4.setBounds(577, 40, 176, 34);
+		layeredPane_1.add(textField_4);
 		textField_4.setColumns(10);
-		textField_4.setBounds(555, 518, 176, 34);
-		add(textField_4);
 		
 		textField_5 = new JTextField();
+		textField_5.setBounds(577, 79, 176, 34);
+		layeredPane_1.add(textField_5);
 		textField_5.setColumns(10);
-		textField_5.setBounds(555, 553, 176, 34);
-		add(textField_5);
 		
-		JLabel label_2 = new JLabel("Laboral");
-		label_2.setFont(new Font("Arial", Font.PLAIN, 20));
-		label_2.setBounds(462, 560, 117, 16);
-		add(label_2);
+		JLabel lblProvincia = new JLabel("Provincia");
+		lblProvincia.setBounds(462, 13, 117, 16);
+		layeredPane_1.add(lblProvincia);
+		lblProvincia.setFont(new Font("Arial", Font.PLAIN, 20));
+		
+		JLabel lblPais = new JLabel("Pais");
+		lblPais.setBounds(462, 47, 117, 16);
+		layeredPane_1.add(lblPais);
+		lblPais.setFont(new Font("Arial", Font.PLAIN, 20));
+		
+		JLabel lblCodPostal = new JLabel("Cod. Postal");
+		lblCodPostal.setBounds(462, 86, 117, 16);
+		layeredPane_1.add(lblCodPostal);
+		lblCodPostal.setFont(new Font("Arial", Font.PLAIN, 20));
 
 	}
 }
