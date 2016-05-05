@@ -125,13 +125,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		
 		
 		
-		
-		
-		panelNuevoMedico.setVisible(false);
-		panelModificarMedico.setVisible(false);
-		panelNuevoEmpleado.setVisible(false);
-		
-		
 	}
 	
 	public void actionPerformed(ActionEvent e) {
