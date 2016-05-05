@@ -1,23 +1,41 @@
 package persistencia;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import negocio.empleado.spec.EmpleadoDTO;
+import negocio.medico.spec.MedicoDTO;
 
 public abstract class Archivos {
 
 	
-	public boolean saveEmpleado(EmpleadoDTO empleado){
-		
-		return true;
-	}
+
 	
-	public EmpleadoDTO readEmpleado(String documento){
-		return null;
-		
-	}
-	
-	public boolean updateEmpleado(EmpleadoDTO empleado){
-		
-		return true;
+	@SuppressWarnings("finally")
+	public static boolean writeFile(String content, String filename){
+		try {
+
+			File file = new File(filename);
+
+			// if file doesnt exists, then create it
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+
+			FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(content);
+			bw.close();
+
+			System.out.println("Done");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			return true;
+		}
 	}
 	
 	

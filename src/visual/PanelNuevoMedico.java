@@ -7,7 +7,18 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
+import negocio.empleado.spec.EmpleadoDTO;
+import negocio.medico.spec.MedicoDAO;
+import negocio.medico.spec.MedicoDTO;
+
 import java.awt.Dimension;
+import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.awt.event.ActionEvent;
+
 
 public class PanelNuevoMedico extends JPanel {
 
@@ -81,6 +92,16 @@ public class PanelNuevoMedico extends JPanel {
 		txtCuitCuil.setColumns(10);
 		
 		JButton btnGuardarMedico = new JButton("Guardar");
+		btnGuardarMedico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MedicoDTO medico = new MedicoDTO();
+				medico.setApellido(txtApellido.getText());		        
+                medico.setFechaNacimiento(txtFechaNacimiento.getText());
+
+				medico.guardarMedico(medico);
+				System.out.println("Guardando empleado");
+			}
+		});
 		btnGuardarMedico.setBounds(105, 294, 93, 29);
 		add(btnGuardarMedico);
 		
