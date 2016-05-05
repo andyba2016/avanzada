@@ -12,7 +12,7 @@ public class EmpleadoDAOFileImpl implements EmpleadoDAO {
 	public EmpleadoDTO guardarEmpleado(EmpleadoDTO empleado) {	
 		Archivos archivo = null;
 		boolean response = false;
-		response = archivo.saveEmpleado(empleado);
+		//response = archivo.saveEmpleado(empleado);
 	    if(response){
 	    	return empleado;
 	    }else{
@@ -23,7 +23,7 @@ public class EmpleadoDAOFileImpl implements EmpleadoDAO {
 	public EmpleadoDTO obtenerEmpleado(EmpleadoDTO empleado) {
 		Archivos archivo = null;
 		boolean response = false;
-		empleado = archivo.readEmpleado(empleado.getDocumento());
+		//empleado = archivo.readEmpleado(empleado.getDocumento());
 		return empleado;
 	}
 

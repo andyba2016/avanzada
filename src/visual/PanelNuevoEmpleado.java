@@ -100,6 +100,7 @@ public class PanelNuevoEmpleado extends JPanel {
 		add(lblDatosDelEmpleado);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setPreferredSize(new Dimension(93, 29));
 		btnCancelar.setBounds(438, 648, 141, 46);
 		add(btnCancelar);
 		

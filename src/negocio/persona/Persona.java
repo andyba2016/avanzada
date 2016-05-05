@@ -6,7 +6,7 @@ public class Persona {
 	
 	private String nombre;
 	private String apellido;
-	private Date fechaNacimiento;
+	private String fechaNacimiento;
 	private String direccion;
 	private String documento;
 	private String cuit;
@@ -23,10 +23,10 @@ public class Persona {
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return fechaNacimiento;
 	}
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 	public String getDireccion() {

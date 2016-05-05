@@ -7,16 +7,27 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 
+import negocio.empleado.spec.EmpleadoDTO;
+import negocio.medico.spec.MedicoDAO;
+import negocio.medico.spec.MedicoDTO;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.JLayeredPane;
+import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.awt.event.ActionEvent;
+
 
 public class PanelNuevoMedico extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNombre;
 	private JTextField txtApellido;
-	private JTextField txtFecha;
+	private JTextField txtFechaNacimiento;
 	private JTextField txtDocumento;
 	private JTextField txtCuitCuil;
 	private JTextField txtEmail;
@@ -74,10 +85,10 @@ public class PanelNuevoMedico extends JPanel {
 		txtApellido.setBounds(232, 89, 176, 34);
 		add(txtApellido);
 		
-		txtFecha = new JTextField();
-		txtFecha.setColumns(10);
-		txtFecha.setBounds(232, 136, 176, 34);
-		add(txtFecha);
+		txtFechaNacimiento = new JTextField();
+		txtFechaNacimiento.setColumns(10);
+		txtFechaNacimiento.setBounds(232, 136, 176, 34);
+		add(txtFechaNacimiento);
 		
 		txtDocumento = new JTextField();
 		txtDocumento.setColumns(10);
@@ -98,14 +109,6 @@ public class PanelNuevoMedico extends JPanel {
 		txtEmail.setColumns(10);
 		txtEmail.setBounds(232, 274, 176, 34);
 		add(txtEmail);
-		
-		JButton buttonGuardar = new JButton("Guardar");
-		buttonGuardar.setBounds(175, 648, 141, 46);
-		add(buttonGuardar);
-		
-		JButton buttonCancelar = new JButton("Cancelar");
-		buttonCancelar.setBounds(409, 648, 141, 46);
-		add(buttonCancelar);
 		
 		JLabel lblObraSocial = new JLabel("Obra Social");
 		lblObraSocial.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -229,6 +232,26 @@ public class PanelNuevoMedico extends JPanel {
 		lblDatosMedico.setFont(new Font("Arial", Font.BOLD, 22));
 		lblDatosMedico.setBounds(17, 6, 234, 34);
 		add(lblDatosMedico);
+
+		JButton btnGuardarMedico = new JButton("Guardar");
+		btnGuardarMedico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				MedicoDTO medico = new MedicoDTO();
+				medico.setApellido(txtApellido.getText());		        
+                medico.setFechaNacimiento(txtFechaNacimiento.getText());
+
+				medico.guardarMedico(medico);
+				System.out.println("Guardando empleado");
+			}
+		});
+		btnGuardarMedico.setBounds(162, 648, 141, 46);
+		add(btnGuardarMedico);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setPreferredSize(new Dimension(93, 29));
+		btnCancelar.setBounds(395, 648, 141, 46);
+		add(btnCancelar);
+
 
 	}
 }

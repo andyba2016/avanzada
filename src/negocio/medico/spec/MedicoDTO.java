@@ -1,6 +1,7 @@
 package negocio.medico.spec;
 
 import negocio.especialidad.Especialidad;
+import negocio.medico.impl.MedicoDAOFileImpl;
 import negocio.persona.Persona;
 
 public class MedicoDTO extends Persona{
@@ -9,7 +10,7 @@ public class MedicoDTO extends Persona{
 	private Especialidad especialidad;
 	
 	public String getCuit() {
-		return cuit;
+		return this.cuit;
 	}
 
 	public void setCuit(String cuit) {
@@ -17,15 +18,21 @@ public class MedicoDTO extends Persona{
 	}
 
 	public Especialidad getEspecialidad() {
-		return especialidad;
+		return this.especialidad;
 	}
 
 	public void setEspecialidad(Especialidad especialidad) {
 		this.especialidad = especialidad;
 	}
 
+    public MedicoDTO guardarMedico(MedicoDTO medico){
+    	MedicoDAOFileImpl file = new MedicoDAOFileImpl();
+    	file.guardarMedico(medico);
+		return null;
+    	
+    }
 
-	
+
 	
 	
 	

@@ -5,6 +5,7 @@ import java.sql.Date;
 import negocio.especialidad.Especialidad;
 import negocio.medico.spec.MedicoDAO;
 import negocio.medico.spec.MedicoDTO;
+import persistencia.Archivos;
 
 public class MedicoDAOFileImpl implements MedicoDAO{
 	
@@ -45,11 +46,18 @@ public class MedicoDAOFileImpl implements MedicoDAO{
 		medico.setEspecialidad(especialidad);
 		return medico;
 	}
-	public MedicoDTO setFechaNacimiento(Date fechaNacimiento) {
-		
-		MedicoDTO medico = new MedicoDTO();
-		medico.setFechaNacimiento(fechaNacimiento);
-		return medico;
+
+	@Override
+	public MedicoDTO guardarMedico(MedicoDTO medico) {
+		String txt = medico.getNombre()+"|"+medico.getApellido()+"|"+medico.getCuit()+"|"+medico.getDocumento()
+		+"|"+medico.getFechaNacimiento()+"|"+medico.getEspecialidad()+"\r\n";
+		boolean ok = Archivos.writeFile(txt,"medico.txt");
+		return null;
+	}
+	@Override
+	public MedicoDTO setFechaNacimiento(String fechaNacimiento) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
