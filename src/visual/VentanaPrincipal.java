@@ -27,24 +27,29 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	
-	PanelNuevoMedico panelNuevoMedico;
-	PanelModificarMedico panelModificarMedico;
-	PanelNuevoEmpleado panelNuevoEmpleado;
+	private PanelNuevoMedico panelNuevoMedico;
+	private PanelModificarMedico panelModificarMedico;
+	private PanelNuevoEmpleado panelNuevoEmpleado;
+	private PanelNuevoPaciente panelNuevoPaciente;
+	private PanelNuevoTurno panelNuevoTurno;
 	
 	
 	private MedicoDAO medDAO = FactoryDAO.getMedicoFactory(FactoryDAO.FILE);
 	private MedicoDTO medico;
 	
 	private JMenuItem mntmNuevoMedico;
+	private JMenuItem mntmNuevoEmpleado;
+	private JMenuItem mntmNuevoPaciente;
+	private JMenuItem mntmNuevoTurno;
 	private JMenuItem mntmModificarMedico;
 	private JMenuItem mntmBorrarMedico;
 	private JMenuItem mntmVerMedicos;
-	private JMenuItem mntmNuevoEmpleado;
+	
 	
 
 	public VentanaPrincipal() {
-		getContentPane().setBackground(UIManager.getColor("textHighlight"));
 		
+		getContentPane().setBackground(UIManager.getColor("textHighlight"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setPreferredSize(new Dimension(800, 750));
 		
@@ -89,7 +94,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		//BOTONES PACIENTES
 		JMenu mnPacientes = new JMenu("Pacientes");
 		menuBar.add(mnPacientes);
-		JMenuItem mntmNuevoPaciente = new JMenuItem("Nuevo Paciente");
+		mntmNuevoPaciente = new JMenuItem("Nuevo Paciente");
+		mntmNuevoPaciente.addActionListener(this);
 		mnPacientes.add(mntmNuevoPaciente);
 		JMenuItem mntmModificarPaciente = new JMenuItem("Modificar Paciente");
 		mnPacientes.add(mntmModificarPaciente);
@@ -101,7 +107,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		//BOTONES TURNOS
 		JMenu mnTurnos = new JMenu("Turnos");
 		menuBar.add(mnTurnos);
-		JMenuItem mntmNuevoTurno = new JMenuItem("Nuevo turno");
+		mntmNuevoTurno = new JMenuItem("Nuevo turno");
+		mntmNuevoTurno.addActionListener(this);
 		mnTurnos.add(mntmNuevoTurno);
 		JMenuItem mntmModificarTurno = new JMenuItem("Modificar turno");
 		mnTurnos.add(mntmModificarTurno);
@@ -120,18 +127,21 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 		
 		
 		// PANELES PACIENTES
+		panelNuevoPaciente = new PanelNuevoPaciente();
 		
 		// PANELES TURNOS
-		
-		
+		panelNuevoTurno = new PanelNuevoTurno();
 		
 	}
 	
 	public void actionPerformed(ActionEvent e) {
 		
-		panelModificarMedico.setVisible(false);
-		panelNuevoMedico.setVisible(false);
 		panelNuevoEmpleado.setVisible(false);
+		panelNuevoMedico.setVisible(false);
+		panelModificarMedico.setVisible(false);
+		panelNuevoPaciente.setVisible(false);
+		panelNuevoTurno.setVisible(false);
+		
 		
 		if(e.getSource()==mntmNuevoEmpleado){
 			
@@ -158,6 +168,20 @@ public class VentanaPrincipal extends JFrame implements ActionListener{
 			getContentPane().add(panelModificarMedico);
 			panelModificarMedico.setVisible(true);
 			System.out.println("se abrio el panel de modificar medico");
+		}
+		else if(e.getSource()==mntmNuevoPaciente){
+			
+			panelNuevoPaciente.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelNuevoPaciente);
+			panelNuevoPaciente.setVisible(true);
+			System.out.println("se abrio el panel de nuevo paciente");
+		}
+		else if(e.getSource()==mntmNuevoTurno){
+			
+			panelNuevoTurno.setPreferredSize(new Dimension(400, 800));
+			getContentPane().add(panelNuevoTurno);
+			panelNuevoTurno.setVisible(true);
+			System.out.println("se abrio el panel de nuevo turno");
 		}
 		
 	}
