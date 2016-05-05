@@ -41,6 +41,7 @@ public class PanelNuevoMedico extends JPanel {
 	private JTextField txtProvincia;
 	private JTextField txtPais;
 	private JTextField txtCodPostal;
+	private JTextField textField;
 
 	
 	public PanelNuevoMedico() {
@@ -251,6 +252,16 @@ public class PanelNuevoMedico extends JPanel {
 		btnCancelar.setPreferredSize(new Dimension(93, 29));
 		btnCancelar.setBounds(395, 648, 141, 46);
 		add(btnCancelar);
+		
+		JLabel label = new JLabel("Especialidad");
+		label.setFont(new Font("Arial", Font.PLAIN, 20));
+		label.setBounds(441, 48, 117, 27);
+		add(label);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(570, 46, 176, 34);
+		add(textField);
 
 
 	}
